@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <!-- Site made with Mobirise Website Builder v4.12.3, https://mobirise.com -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.12.3, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="assets/images/logo-122x122.png" type="image/x-icon">
+  <meta name="description" content="Plan what to eat, shop, and cook with ease.">
+
+
+  <title>The Cooking Itinerary</title>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/core.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/md5.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/scripts/login.js"></script>
+
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons2/mobirise2.css">
+  <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="assets/animatecss/animate.min.css">
+  <link rel="stylesheet" href="assets/tether/tether.min.css">
+  <link rel="stylesheet" href="assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="assets/theme/css/style.css">
+  <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css">
+  <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
+  <link rel="stylesheet" href="/styles/login.css">
+
+</head>
+
+<body>
+  <section class="menu cid-rTlcg6p23s" once="menu" id="menu1-f" style="display: contents;">
+
+
+
+    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+      <div class="menu-logo">
+        <div class="navbar-brand">
+          <span class="navbar-logo">
+            <a href="/index.html">
+              <img src="https://cookitinerary.com/assets/images/logo-122x122.png" alt="Logo" title="" style="height: 3.8rem;">
+            </a>
+          </span>
+          <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="/index.html">
+              The Cooking Itinerary</a></span>
+        </div>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+          <li class="nav-item">
+            <a class="nav-link link text-white display-4" href="./about"><span class="mobi-mbri mobi-mbri-info mbr-iconfont mbr-iconfont-btn"></span>
+
+              About</a>
+          </li>
+          <div class="notLoggedIn">
+            <li class="nav-item">
+              <a class="nav-link link text-white display-4" href="#" onclick="showLogin()"><span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>
+                Log In</a>
+            </li>
+          </div>
+        </ul>
+        <div class="notLoggedIn">
+          <div class="navbar-buttons mbr-section-btn"><button class="btn btn-sm btn-primary display-4" style="border-radius: 100px" onclick="showLogin()">Sign Up for Free</button></div>
+        </div>
+        <div class="loggedIn" style="display:none;">
+          <div id="aManage" class="navbar-buttons mbr-section-btn">
+            <button id="accountIcon" class="btn btn-sm btn-primary display-4">
+            </button>
+            <div id="accountDropdown" class="dropdown-content hide">
+              <a id="logout"><span class="mobi-mbri mobi-mbri-logout mbr-iconfont mbr-iconfont-btn" style="margin-right: 0.3em;"></span>Log Out</a>
+              <a href="/create"><span class="mobi-mbri mobi-mbri-calendar mbr-iconfont mbr-iconfont-btn" style="margin-right: 0.4em;"></span>My Plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </section>
+
+  <div class="mBackground hide" id="mBackground">
+    <div class="lmodal">
+      <div class="container">
+        <span class="mclose" onclick="closeLogin()">&times;</span>
+        <button id="glogin" class="btn btn-outline-light">
+          <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+          Log In with Google
+        </button>
+        <div class="modeChoose">
+          <button id="loginc" name="button">Log In</button><span>or</span><button id="signupc" name="button">Sign Up</button>
+        </div>
+        <form id="account">
+          <input id="emailInput" type="email" placeholder="Email" required>
+          <br>
+          <input id="passwordInput" type="password" placeholder="Password" required>
+          <div class="loginMode">
+            <button id="login" name="button">Log In</button>
+          </div>
+          <div class="signupMode hide">
+            <input id="confirm" type="password" placeholder="Confirm" required>
+            <br>
+            <button id="signup" name="button">Sign Up</button>
+          </div>
+          <div class="message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section class="engine"><a href="https://mobirise.info/u">bootstrap website templates</a></section>
+  <section class="header3 cid-rUFg4Ox4F8" id="header3-1f" style="display: contents;">
+
+
+
+
+
+    <div class="container" style="margin-top: 6em; margin-bottom: 4em;">
+      <div class="media-container-row">
+        <div class="mbr-figure" style="width: 100%;">
+          <img src="assets/images/mbr-1024x370.png" alt="Mobirise" title="">
+        </div>
+
+        <div class="media-content">
+          <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-1">We sent you a verification email</h1>
+
+          <div class="mbr-section-text mbr-white pb-3 ">
+            <p class="mbr-text mbr-fonts-style display-5">
+              Please check your inbox for an email from Cook Itinerary and click the link to verify your account.</p>
+          </div>
+          <div class="mbr-section-btn"><a class="btn btn-md btn-black-outline display-4" id="resend" href="#"><span class="mbri-paper-plane mbr-iconfont mbr-iconfont-btn"></span>Resend Verification Email</a><span id="resendm"
+              style="font-size: 1.2rem;"></span>
+            <a class="btn btn-md btn-primary display-4" href="/create"><span class="mbri-calendar mbr-iconfont mbr-iconfont-btn"></span>Start Planning!</a></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <div class="mBackground hide" id="mBackground">
+    <div class="lmodal">
+      <div class="container">
+        <span class="mclose" onclick="closeLogin()">&times;</span>
+        <button id="glogin" class="btn btn-outline-light">
+          <img width="20px" style="margin-bottom:3px; margin-right:5px" alt="Google sign-in" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+          Log In with Google
+        </button>
+        <div class="modeChoose">
+          <button id="loginc" name="button">Log In</button><span>or</span><button id="signupc" name="button">Sign Up</button>
+        </div>
+        <form id="account">
+          <input id="emailInput" type="email" placeholder="Email" required>
+          <br>
+          <input id="passwordInput" type="password" placeholder="Password" required>
+          <div class="loginMode">
+            <button id="login" name="button">Log In</button>
+          </div>
+          <div class="signupMode hide">
+            <input id="confirm" type="password" placeholder="Confirm" required>
+            <br>
+            <button id="signup" name="button">Sign Up</button>
+          </div>
+          <div class="message"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <section class="footer4 cid-rTqGD0Jgd3" id="footer4-j" style="display: block;">
+
+
+
+
+
+    <div class="container">
+      <div class="media-container-row content mbr-white">
+        <div class="col-md-3 col-sm-4">
+          <div class="mb-3 img-logo">
+            <a href="/index.html">
+              <img src="assets/images/logo-122x122.png" alt="Mobirise" title="">
+            </a>
+          </div>
+          <p class="mb-3 mbr-fonts-style foot-title display-7">
+            COOKING ITINERARY</p>
+          <p class="mbr-text mbr-fonts-style mbr-links-column display-7">
+            <a href="/about" class="text-white">About Us</a><a href="#" class="text-white"><br></a><a href="./create" class="text-white">Start Planning</a><br><a href="contact.html" class="text-white">Get In Touch</a><br><a href="/sitemap.xml"
+              class="text-white">Sitemap</a></p>
+        </div>
+        <div class="col-md-4 col-sm-8">
+          <p class="mb-4 foot-title mbr-fonts-style display-7">
+            RECENT NEWS
+          </p>
+          <p class="mbr-text mbr-fonts-style foot-text display-7">
+            Our homepage is live and accounts are working smoothly! If you have any feedback, please send us an email at <a href="mailto:hello@cookitinerary.com" target="_blank">hello@cookitinerary.com</a>.<br>
+            <br>Cooking Itinerary helps you find recipes and plan when to make them easily. It also automatically generates a shopping list so that you don't have to look through all the recipe pages for ingredients.</p>
+        </div>
+        <div class="col-md-4 offset-md-1 col-sm-12">
+          <p class="mb-4 foot-title mbr-fonts-style display-7">
+            SUBSCRIBE
+          </p>
+          <p class="mbr-text mbr-fonts-style form-text display-7">
+            Get early updates on new features and tips.</p>
+          <div class="media-container-column" data-form-type="formoid">
+            <!---Formbuilder Form--->
+            <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true"
+                value="PJTPaJLjk34ai+8z+hrVIvsmpg8zS81qhQyTIJQlDc4dhuUVL0Pv1CPBMJhIR67cmBP6Nv53kQ4m7JohORFHMvA1hN16uEcwMSdHfjZvbOc7t8DWJzVS1vSoSakqtiKM">
+              <div class="row form-inline justify-content-center">
+                <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
+                <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
+                </div>
+              </div>
+              <div class="dragArea row form-inline justify-content-center">
+                <div class="col-auto  form-group " data-for="email">
+                  <input type="email" name="email" placeholder="Email" data-form-field="Email" required="required" class="form-control input-sm input-inverse my-2 display-7" id="email-footer4-j">
+                </div>
+                <div class="col-auto  input-group-btn  m-2"><button type="submit" class="btn btn-primary m-0 display-4">Subscribe</button></div>
+              </div>
+            </form>
+            <!---Formbuilder Form--->
+          </div>
+          <p class="mb-4 mbr-fonts-style foot-title display-7">&nbsp;</p>
+
+        </div>
+      </div>
+      <div class="footer-lower">
+        <div class="media-container-row">
+          <div class="col-sm-12">
+            <hr>
+          </div>
+        </div>
+        <div class="media-container-row mbr-white">
+          <div class="col-sm-12 copyright">
+            <p class="mbr-text mbr-fonts-style display-7">
+              © Copyright 2020 Cooking Itinerary - All Rights Reserved
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="assets/popper/popper.min.js"></script>
+  <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
+  <script src="assets/vimeoplayer/jquery.mb.vimeo_player.js"></script>
+  <script src="assets/tether/tether.min.js"></script>
+  <script src="assets/theme/js/script.js"></script>
+  <script src="assets/formoid/formoid.min.js"></script>
+
+
+  <input name="animation" type="hidden">
+  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
+</body>
+
+</html>

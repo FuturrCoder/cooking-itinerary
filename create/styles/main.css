@@ -1,0 +1,164 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  font-family: 'Poppins', sans-serif;
+}
+
+b {
+  font-weight: 600;
+}
+
+td {
+  vertical-align: baseline;
+}
+
+input {
+  font-family: Poppins;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+.search {
+  width: 75%;
+  height: 20px;
+  border: none;
+  margin: 0.5em 0em 0.5em 1em;
+  flex-grow: 1;
+  -webkit-transition-duration: 1s;
+  transition-duration: 1s;
+}
+
+.submit {
+  border: none;
+  cursor: pointer;
+  background-color: white;
+}
+
+.searchbar {
+  display: flex;
+  border: 1px lightgray solid;
+  border-radius: 5px;
+}
+
+.day {
+  width: 95%;
+  position: relative;
+  display: inline-block;
+  overflow: inherit;
+}
+
+.day .popuptext {
+  visibility: hidden;
+  overflow: scroll;
+  width: 99.3%;
+  height: 15em;
+  /* color: #fff; */
+  border: 1px lightgray solid;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  margin-top: -1px;
+}
+
+.day .chosentext {
+  display: none;
+  overflow: scroll;
+  width: 99.5%;
+  /* color: #fff; */
+  border: 1px lightgray solid;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: relative;
+  z-index: 1;
+  margin-top: -1px;
+}
+
+.day .show {
+  visibility: visible;
+  -webkit-animation: blowUp 1s;
+  animation: blowUp 1s;
+}
+
+.day a {
+  color: #007bff;
+  font-weight: normal;
+}
+
+.rText {
+  color: gray;
+  padding-left: 1em;
+  opacity: 0;
+  transition-duration: 0.4s;
+}
+
+.ing:hover .rText {
+  opacity: 100%;
+}
+
+.addIngredient {
+  width: 30%;
+  border-bottom-width: 1px;
+  border-color: #2e2e2e;
+  border-style: hidden hidden solid hidden;
+  transition-duration: 0.5s;
+}
+
+.addIngredient:hover, .addIngredient:focus {
+  border-bottom-width: 2px;
+}
+
+#printList {
+  width: 24px;
+  position: relative;
+  margin-left: 1em;
+  top: 0.3em;
+}
+
+#save {
+  width: 15em;
+  height: 3em;
+  font-size: 12px;
+  border-radius: 17px;
+  background-color: lightgray;
+}
+
+#list {
+  display: none;
+  padding: 8px 0;
+  margin-top: 0.5em;
+  border: 1px lightgray solid;
+  border-radius: 6px;
+}
+
+#list h3 {
+  display: inline-flex;
+}
+
+@-webkit-keyframes blowUp {
+  from {
+    width: 10%;
+    transform: translate(60%, 0%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes blowUp {
+  from {
+    width: 10%;
+    transform: translate(60%, 0%);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
