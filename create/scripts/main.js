@@ -1,4 +1,4 @@
-var host = 'https://www.googleapis.com/customsearch/v1?cx=011634901688220916863:3tda1geanei&key=AIzaSyCIA6ZbPp4i99e1HCVGGQly0_8RjLGFta8&q='
+var host = 'https://www.googleapis.com/customsearch/v1?cx=011634901688220916863:3tda1geanei&key=REDACTED&q='
 var auth
 var firestore
 var user
