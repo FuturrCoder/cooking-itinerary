@@ -13,16 +13,7 @@ window.onclick = function(e) {
 }
 
 $(document).ready(function() {
-  let firebaseConfig = {
-    apiKey: "AIzaSyD6PzBJI075Klr8nkQkDHT1iJSIw1K3fss",
-    authDomain: "cook-itinerary.firebaseapp.com",
-    databaseURL: "https://cook-itinerary.firebaseio.com",
-    projectId: "cook-itinerary",
-    storageBucket: "cook-itinerary.appspot.com",
-    messagingSenderId: "270781214633",
-    appId: "1:270781214633:web:8db354a50b67a6b2cd5eb8",
-    measurementId: "G-W3WSP6KW7K"
-  }
+  let firebaseConfig = {} // redacted
 
   firebase.initializeApp(firebaseConfig)
   firebase.analytics()
